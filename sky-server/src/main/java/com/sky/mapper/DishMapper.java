@@ -63,4 +63,11 @@ public interface DishMapper {
      * 批量删除菜品数据
      */
     void deleteByIds(List<Long> dis);
+
+    /**
+     * 动态条件查询
+     * @param dish
+     * @return
+     */
+    List<Dish> list(Dish dish);
 }

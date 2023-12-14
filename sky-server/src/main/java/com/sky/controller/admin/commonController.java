@@ -42,4 +42,6 @@ public class commonController {
         String filePath = aliOssUtil.upload(file.getBytes(), objectName);
         return Result.success(filePath);
     }
+
+
 }
