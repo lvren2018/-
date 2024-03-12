@@ -104,7 +104,7 @@ public class DishServiceImpl implements DishService {
 
         }
         //判断菜品是否被关联
-        List<Long> setmealIds = setmealDishMapper.getSetmealIdsByDishId(ids);
+        List<Long> setmealIds = setmealDishMapper.getSetmealIdsByDishIds(ids);
         if( setmealIds!=null && setmealIds.size() >0 ){
             throw new DeletionNotAllowedException(MessageConstant.SETMEAL_ON_SALE);
         }
@@ -181,5 +181,14 @@ public class DishServiceImpl implements DishService {
         }
 
         return dishVOList;
+    }
+
+    @Override
+    public List<Dish> list(Long categoryId) {
+        Dish dish = Dish.builder()
+                .categoryId(categoryId)
+                .status(StatusConstant.ENABLE)
+                .build();
+        return dishMapper.list(dish);
     }
 }

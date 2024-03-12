@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.UUID;
 
 /**
@@ -24,7 +21,7 @@ import java.util.UUID;
 @RequestMapping("/admin/common")
 @Api(tags = "通用接口")
 @Slf4j
-public class commonController {
+public class CommonController {
 
     @Autowired
     AliOssUtil aliOssUtil;
