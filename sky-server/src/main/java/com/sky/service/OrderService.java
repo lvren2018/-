@@ -8,6 +8,7 @@ import com.sky.entity.Category;
 import com.sky.result.PageResult;
 import com.sky.vo.OrderPaymentVO;
 import com.sky.vo.OrderSubmitVO;
+import com.sky.vo.OrderVO;
 
 import java.util.List;
 
@@ -32,4 +33,26 @@ public interface OrderService {
      * @param outTradeNo
      */
     void paySuccess(String outTradeNo);
+
+    /**
+     * 客户催单提醒
+     * @param id
+     */
+    void reminder(Long id);
+
+    /**
+     * 用户端订单分页查询
+     * @param pageNum
+     * @param pageSize
+     * @param status
+     * @return
+     */
+    PageResult pageQuery4User(int pageNum, int pageSize, Integer status);
+
+    /**
+     * 用户端订单详情查询
+     * @param id
+     * @return
+     */
+    OrderVO details(Long id);
 }
