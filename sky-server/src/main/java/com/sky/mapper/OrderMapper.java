@@ -2,6 +2,7 @@ package com.sky.mapper;
 
 import com.github.pagehelper.Page;
 import com.sky.annotation.AutoFill;
+import com.sky.dto.GoodsSalesDTO;
 import com.sky.dto.OrdersPageQueryDTO;
 import com.sky.dto.SetmealPageQueryDTO;
 import com.sky.entity.Orders;
@@ -89,4 +90,17 @@ public interface OrderMapper {
     Double getTurnoverByReportDate(LocalDateTime beginTime,LocalDateTime endTime);
 
 
+    /**
+     * 查询指定时间内订单总数
+     * @return
+     */
+    Integer countStatusByTime(LocalDateTime beginTime, LocalDateTime endTime, Integer status);
+
+    /**
+     * 查询指定时间内的销量top10
+     * @param beginTime
+     * @param endTime
+     * @return
+     */
+    List<GoodsSalesDTO> getTop10(LocalDateTime beginTime, LocalDateTime endTime);
 }
