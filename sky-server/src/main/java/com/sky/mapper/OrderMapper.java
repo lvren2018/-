@@ -14,6 +14,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -77,4 +78,15 @@ public interface OrderMapper {
      */
     @Select("select count(id) from orders where status = #{status}")
     Integer countStatus(Integer status);
+
+    /**
+     * 根据日期统计营业额
+     * @param beginTime
+     * @param endTime
+     * @return
+     */
+    @Select("select sum(amount) from orders where order_time >= #{beginTime} and order_time <= #{endTime} and status = 5")
+    Double getTurnoverByReportDate(LocalDateTime beginTime,LocalDateTime endTime);
+
+
 }
