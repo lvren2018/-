@@ -8,8 +8,7 @@ sky:
     password: root
   alioss:
     endpoint: oss-cn-beijing.aliyuncs.com
-    access-key-id: LTAI5tMY8MAPXd2TzMMXJx1M
-    access-key-secret: G5p34PwZ8edwIi70rcVz0h2UARccBE
+
     bucket-name: itcast-sky-takeaway
   redis:
     host: 192.168.162.129
@@ -17,8 +16,7 @@ sky:
     password: 123456
     database: 0
   wechat:
-    appid: wx5eea5f990916e210
-    secret: febc8e9035fc42ceb90cdfff065e031d
+
 
     mchid: 1561414331
     mchSerialNo: 4B3B3DC35414AD50B1B755BAF8DE9CC7CF407606
