@@ -17,7 +17,7 @@ public interface OrderService {
      * @param ordersSubmitDTO
      * @return
      */
-    OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO);
+    OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO) throws Exception;
 
     /**
      * 订单支付

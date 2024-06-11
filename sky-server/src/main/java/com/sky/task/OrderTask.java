@@ -21,7 +21,7 @@ public class OrderTask {
     //处理超时订单
     @Scheduled(cron = "0 * * * * ?")//每分钟执行一次
     public void processTimeOut(){
-        log.info("定时任务处理超时订单: {}", LocalDateTime.now());
+        //定时任务处理超时订单
         LocalDateTime time = LocalDateTime.now().plusMinutes(-15);
         List<Orders> ordersList = orderMapper.getByStatusAndOrderTimeLT(Orders.PENDING_PAYMENT, time);
         if (ordersList != null && ordersList.size() > 0){
@@ -33,10 +33,11 @@ public class OrderTask {
             });
         }
     }
+
     //处理一直处于派送中的订单
     @Scheduled(cron = "0 0 1 * * ?")//每天凌晨1点执行
     public void processDeliveryOrder(){
-        log.info("定时任务处理派送中的订单: {}", LocalDateTime.now());
+        //定时任务处理派送中的订单
         LocalDateTime time = LocalDateTime.now().plusMinutes(-60);
         List<Orders> ordersList = orderMapper.getByStatusAndOrderTimeLT(Orders.DELIVERY_IN_PROGRESS,time);
         if (ordersList != null && ordersList.size() > 0){

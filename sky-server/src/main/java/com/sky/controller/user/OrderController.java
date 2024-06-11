@@ -1,5 +1,6 @@
 package com.sky.controller.user;
 
+import com.sky.annotation.ApiIdempotent;
 import com.sky.dto.OrdersPaymentDTO;
 import com.sky.dto.OrdersSubmitDTO;
 import com.sky.result.PageResult;
@@ -31,9 +32,10 @@ public class OrderController {
      * @param ordersSubmitDTO
      * @return
      */
+//    @ApiIdempotent
     @PostMapping("/submit")
     @ApiOperation("用户下单")
-    public Result<OrderSubmitVO> submit(@RequestBody OrdersSubmitDTO ordersSubmitDTO){
+    public Result<OrderSubmitVO> submit(@RequestBody OrdersSubmitDTO ordersSubmitDTO) throws Exception {
         OrderSubmitVO orderSubmitVO = orderService.submitOrder(ordersSubmitDTO);
         return Result.success(orderSubmitVO);
     }
